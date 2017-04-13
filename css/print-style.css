@@ -1,0 +1,13 @@
+#beta-tag {
+    background: red;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 0.1em;
+    margin-left: 0.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    font-size: 0.5em;
+}
+
