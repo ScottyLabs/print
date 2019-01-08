@@ -1,35 +1,43 @@
 <!doctype html>
 
 <html lang="en">
-<head>
+  <head>
     <title>ScottyLabs | Print</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="css/print-style.css">
-</head>
+    <title>Print @ Carnegie Mellon</title>
+  </head>
 
-<body>
+  <body>
     <div class="container">
+      <br>
+      <h3>Print @ Carnegie Mellon</h3>
+      <form action="https://apis.scottylabs.org/print/v0/printfile" method=post enctype=multipart/form-data>
+        <label for="andrew_id">Andrew ID</label>
+        <input type="text" name="andrew_id" id="andrew_id" required>
 
-        <h1>Print @ ScottyLabs<sup id="beta-tag">beta</sup></h1>
+        <label for="upload_file">Upload your file</label>
+        <small>Supported files: .pdf and .txt under 25MB.</small>
+        <input type="file" name="file" id="upload_file" required>
 
-        <p>Easy CMU printing brought to you by <a href="https://scottylabs.org">ScottyLabs</a>.
-        Enter your Andrew ID, then upload a PDF that you want to print. No drivers needed.</p>
+        <label for="copies"># of Copies</label>
+        <input name="copies" type="number" value="1" min="1" id="copies">
 
-        <form action="https://apis.scottylabs.org/print/v0/printfile" method=post enctype=multipart/form-data>
-            <div class="form-group">
-                <label for="andrew_id">Andrew ID</label>
-                <input type="text" name="andrew_id" class="form-control" id="andrew_id">
-            </div>
-            <div class="form-group">
-                <label for="file">Choose File</label>
-                <input type="file" name=file class="form-control-file" id="file">
-                <small class="form-text text-muted">Currently only PDF and txt files under 25MB are supported.</small>
-            </div>
-            <button type="submit" class="btn btn-primary">Print</button>
-        </form>
+        <label for="sides">Sidedness</label>
+        <select name="sides" id="sides">
+          <option value="one-sided" selected>One-sided</option>
+          <option value="two-sided-long-edge">Two-sided (portrait)</option>
+          <option value="two-sided-short-edge">Two-sided (landscape)</option>
+        </select>
 
+        <input type="submit" value=Upload>
+      </form>
+
+      <hr>
+
+      <p>Brought to you by <a href="http://scottylabs.org">ScottyLabs</a>. Source code available on <a href="http://github.com/scottylabs">GitHub</a>.</p>
     </div>
-</body>
+  </body>
 </html>
